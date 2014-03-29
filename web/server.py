@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect
 from flask.ext.pymongo import PyMongo
 from pymongo.errors import DuplicateKeyError
 from helpers.forms import SignupForm
-from helpers.util import parse_phone_number, notify_taco_lover
+from helpers.util import parse_phone_number, notify_taco_lover, get_taco_pun
 
 app = Flask(__name__)
 app.config.from_envvar('WAT_TACO_SETTINGS')
@@ -12,7 +12,7 @@ mongo = PyMongo(app)
 @app.route('/')
 def index():
     signup_form = SignupForm()
-    return render_template('index.html', form=signup_form)
+    return render_template('index.html', form=signup_form, pun=get_taco_pun())
 
 @app.route('/success')
 def success():
@@ -37,7 +37,7 @@ def signup():
         except:
             return redirect('/fail')
 
-    return render_template('index.html', form=signup_form)
+    return render_template('index.html', form=signup_form, pun=get_taco_pun())
 
 
 if __name__ == '__main__':
