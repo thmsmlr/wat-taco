@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>WatTaco</title>
+    <meta property="og:title" content="WatTaco - Your taco concierge" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://wattaco.com/" />
+    <meta property="og:image" content="http://wattaco.com/static/taco.png" />
+    <link href="/static/main.css" rel="stylesheet" />
+    <link href="/static/phone.css" rel="stylesheet" />
+    <script type="text/javascript" src="//use.typekit.net/zul0pef.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+<body>
+  {% block body %}
+  {% endblock %}
+  <script type="text/javascript" src="/static/prefixfree.min.js"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-49477558-1', 'wattaco.com');
+    ga('send', 'pageview');
+
+  </script>
+</body>
+</html>
