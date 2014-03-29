@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+import os
+
+os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 # from lib.uwfoods import get_taco_restaurants
 from lib.taco_lover import notify_taco_lover, get_taco_lovers
