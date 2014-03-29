@@ -1,0 +1,8 @@
+# use /bin/sh to run commands, no matter what /etc/passwd says
+SHELL=/bin/sh
+
+# mail any output to 'paul', no matter whose crontab this is
+MAILTO=millar.thomas@gmail.com
+
+* 1-17 * * *     /Users/tmillar/code/wat-taco/worker/check-for-tacos
+
