@@ -3,20 +3,24 @@ import os
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
-# from lib.uwfoods import get_taco_restaurants
+from datetime import datetime
+
+from lib.uwfoods import get_taco_restaurants
 from lib.taco_lover import notify_taco_lover, get_taco_lovers
 from lib.config import Config
 
 if __name__ == '__main__':
-    taco_lovers = get_taco_lovers()
-    for taco_lover in taco_lovers:
-        notify_taco_lover(taco_lover, "Yay! Tacos! Head over to V1 to get Tacos")
-        print "Notified %s" % taco_lover
-    # notify_taco_lover("2266064222", "Yay! Tacos! Head over to V1 to get Tacos")
-    # restaurants = get_taco_restaurants()
+    tacos = get_taco_restaurants()
 
-    # if len(restaurants) > 0:
+    if len(tacos) > 0:
+        taco_lovers = get_taco_lovers()
+        msg = []
+        for taco in tacos:
+            msg.append(' ' + taco['restaurant'] + ' is serving ' + taco['food'] + ' for ' + taco['meal'])
 
+        msg = 'Yay! Tacos!' + ', '.join(msg) + '.'
 
-
+        for taco_lover in taco_lovers:
+            notify_taco_lover(taco_lover, msg)
+            print "[%s] - %s" % (taco_lover, msg)
 
