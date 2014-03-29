@@ -2,17 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Wat Taco</title>
+    <title>WatTaco</title>
     <link href="/static/main.css" rel="stylesheet" />
+    <link href="/static/phone.css" rel="stylesheet" />
     <script type="text/javascript" src="//use.typekit.net/zul0pef.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
-  <div class="table">
-    <div class="table-center">
-      <div class="wrapper">
-        <h1>UWaterloo <3 Tacos</h1>
-        <p>That's why you want SMS whenever a UW restaurant is selling Tacos.</p>
+  <section>
+    <div class="wrapper">
+      <article id="devices" 
+        {% if not form.errors.phone_number %}
+        class="animate"
+        {% endif %}
+        >
+        <div id="device">
+          <div id="devicetop"></div>
+          <div id="screen">
+            <div id="taco-notification"></div>
+          </div>
+          <div id="button">
+            <div id="button-square"></div>
+          </div>
+        </div>
+      </article>
+      <div id="info">
+        <h1>UWaterloo's Taco Notifier</h1>
+        <p>Get an SMS whenever a restaurant on campus is selling tacos.</p>
         <form action="/signup" method="post" name="signup">
             {{form.hidden_tag()}}
 
@@ -28,7 +44,11 @@
         </form>
       </div>
     </div>
-  </div>
-  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+  </section>
+
+  <footer>
+    <p>Created by: <a href="http://thmsmlr.com">thmsmlr</a></p>
+  </footer>
+  <script type="text/javascript" src="/static/prefixfree.min.js"></script>
 </body>
 </html>

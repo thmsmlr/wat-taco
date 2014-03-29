@@ -4,65 +4,107 @@ html,body {
   margin:0;
   padding:0;
 }
+
 body {
-  background:#eee;
   font-family: "jaf-facitweb";
+  background:#ecf0f1;
+}
+
+footer {
+  position:absolute;
+  bottom:0;
+  width: 100%;
+  text-align:center;
+  font-size: 13px;
+  padding: 5px 0;
+  color: #999;
+}
+footer a {
+  text-decoration: none;
+  color: inherit;
+}
+footer a:hover {
+  color: black;
+}
+
+section {
+}
+
+.wrapper {
+  margin: 0 auto;
+  width:100%;
+  padding: 60px 0;
+}
+
+.wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#info {
+  float:right;
+  width: 52%;
+  margin-top: 50px;
+  padding: 10px 0px;
+  padding-left: 20px;
+  background:white;
+  border-left: 7px solid orange;
+  border-bottom: 2px solid #c5c3ba;
+}
+
+#devices {
+  float:left;
+  width: 45%;
 }
 
 h1 {
   margin-bottom: 0.3em;
+  margin-top: 0.3em;
 }
 p {
   margin: 0.5em 0;
 }
 
-.table {
-  display:table;
-  max-width: 960px;
-  width:100%;
-  height: 100%;
-  margin: 0 auto;
-}
-
-.table-center {
-  display:table-cell;
-  vertical-align: middle;
-  padding-bottom: 30px;
-}
-
-.wrapper {
-  float:right;
-  width: 45%;
+.error {
+  color: red;
 }
 
 form {
-  margin: 15px 0;
+  margin: 10px 0;
 }
 
 input[type=text], input[type=submit] {
-  border-radius: 3px;
-  border: 1px solid #555;
-  color: #444;
-  display:inline-block;
-  font-weight: bold;
+  border: 1px solid #c5c3ba;
+  margin-top: 5px;
+  margin-right: 12px;
   padding: 5px 7px;
-  line-height: 16px;
-  margin:0;
-}
-
-input[type=text] {
-  width: 160px;
-}
-
-::-webkit-input-placeholder {
-  line-height: 16px;
+  font-size: 13px;
 }
 
 input[type=submit] {
-  background:white;
+  background: white;
 }
 
-.error {
-  color: red;
-  font-size: 13px;
+input[type=submit]:hover {
+  cursor: pointer;
+}
+
+input[type=submit]:focus {
+  background: gray;
+}
+
+.center {
+  text-align:center;
+}
+.success-message {
+  margin-bottom: 60px;
+}
+.success-message h1 {
+  background:white;
+  display:inline-block;
+  padding: 7px 25px;
+  border-left: 7px solid orange;
+  border-right: 7px solid orange;
+  border-bottom: 2px solid #c5c3ba;
 }
