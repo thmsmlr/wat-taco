@@ -1,5 +1,1 @@
-web/config/development.cfg
-web/config/production.cfg
 *.pyc
-web/dist
-web/Wat_Taco.egg-info

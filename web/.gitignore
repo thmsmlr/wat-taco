@@ -1,0 +1,4 @@
+config/development.cfg
+config/production.cfg
+dist
+Wat_Taco.egg-info
