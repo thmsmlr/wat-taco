@@ -11,10 +11,10 @@ if __name__ == '__main__':
 
      if len(tacos) > 0:
 		 taco_lovers = get_taco_lovers()
-		 msg = ''
+		 msg = []
 		 for taco in tacos:
-			 msg += ' ' + taco['restaurant'] + ' is serving ' + taco['food'] + ' for ' + taco['meal']
+			 msg.append(' ' + taco['restaurant'] + ' is serving ' + taco['food'] + ' for ' + taco['meal'])
 
 		 for taco_lover in taco_lovers:
-			 notify_taco_lover(taco_lover, 'Yay! Tacos!' + msg
+			 notify_taco_lover(taco_lover, 'Yay! Tacos!' + ','.join(msg)
 
