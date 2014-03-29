@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect
 from flask.ext.pymongo import PyMongo
 from pymongo.errors import DuplicateKeyError
 from helpers.forms import SignupForm
-from helpers.util import parse_phone_number
+from helpers.util import parse_phone_number, notify_taco_lover
 
 app = Flask(__name__)
 app.config.from_envvar('WAT_TACO_SETTINGS')
@@ -24,10 +24,13 @@ def signup():
 
     if signup_form.validate_on_submit():
         try:
+            phone_number = parse_phone_number(signup_form.phone_number.data)
             mongo.db.taco_lovers.ensure_index('phone_number', unique=True)
             mongo.db.taco_lovers.insert({
-                'phone_number' : parse_phone_number(signup_form.phone_number.data)
+                'phone_number' : phone_number
             })
+            notify_taco_lover(phone_number, app.config)
+
             return redirect('/success')
         except DuplicateKeyError:
             signup_form.phone_number.errors.append("You've already registered for notifications!")
