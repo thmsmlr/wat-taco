@@ -1,0 +1,4 @@
+#!/bin/sh
+
+WAT_TACO_SETTINGS='./config/production.cfg' python server.py
+
