@@ -12,3 +12,12 @@ class SignupForm(Form):
         if len(number) != 10:
             raise ValidationError("Input must be a 10-digit phone number")
 
+class UnsubscribeForm(Form):
+    phone_number = TextField('phone_number', validators = [Required()])
+
+    def validate_phone_number(form, field):
+        number = parse_phone_number(field.data)
+
+        if len(number) != 10:
+            raise ValidationError("Input must be a 10-digit phone number")
+
