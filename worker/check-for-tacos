@@ -21,6 +21,10 @@ if __name__ == '__main__':
         msg = 'Yay! Tacos!' + ', '.join(msg) + '.'
 
         for taco_lover in taco_lovers:
-            notify_taco_lover(taco_lover, msg)
-            print "[%s] - %s" % (taco_lover, msg)
+            try:
+                notify_taco_lover(taco_lover, msg)
+                print "[%s] - %s" % (taco_lover, msg)
+            except:
+                print "[%s] - Failed to send message!" % taco_lover
+
 
