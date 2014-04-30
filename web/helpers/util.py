@@ -16,11 +16,11 @@ def notify_taco_lover(phone_number):
 
     client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
 
-    client.messages.create(
-        to=phone_number,
-        from_="+14385001046",
-        body="Congratulations you've officially been subscribed to Wat Taco!",
-    )
+    # client.messages.create(
+    #     to=phone_number,
+    #     from_="+14385001046",
+    #     body="Congratulations you've officially been subscribed to Wat Taco!",
+    # )
 
 
 TACO_PUNS = [
