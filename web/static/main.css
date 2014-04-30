@@ -102,10 +102,8 @@ input[type=submit]:focus {
 .center {
   text-align:center;
 }
-.success-message {
+.message {
   margin-bottom: 60px;
-}
-.success-message h1 {
   background:white;
   display:inline-block;
   padding: 7px 25px;

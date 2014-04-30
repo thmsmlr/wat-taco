@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block body %}
+  <section>
+    <div class="wrapper center">
+      <div>
+        <div class="message">
+          <h1>We're so sad you're leaving us</h1>
+          <p>Enter your phone number to unsubscribe.</p>
+          <form action="/unsubscribe" method="post" name="unsubscribe">
+            {{form.hidden_tag()}}
+
+            {% for error in form.errors.phone_number %}
+              <span class="error">[{{error}}]</span>
+              <br>
+            {% endfor %}
+
+            <p>
+              {{form.phone_number(placeholder="(123) 456-7890")}}
+              <input type="submit" value="Unsubscribe">
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
