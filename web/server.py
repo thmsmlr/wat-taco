@@ -29,7 +29,7 @@ def signup():
             mongo.db.taco_lovers.insert({
                 'phone_number' : phone_number
             })
-            notify_taco_lover(phone_number, app.config)
+            notify_taco_lover(phone_number)
 
             return redirect('/success')
         except DuplicateKeyError:

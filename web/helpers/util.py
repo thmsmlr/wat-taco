@@ -1,5 +1,7 @@
 from twilio.rest import TwilioRestClient
 
+from lib import config
+
 import re
 import random
 
@@ -8,17 +10,17 @@ NUMBER_REGEX = re.compile(r'[^\d.]+')
 def parse_phone_number(number_str):
     return NUMBER_REGEX.sub('', number_str)
 
-def notify_taco_lover(phone_number, config):
-    ACCOUNT_SID = config["TWILIO_ACCOUNT_SID"]
-    AUTH_TOKEN = config["TWILIO_AUTH_TOKEN"]
+def notify_taco_lover(phone_number):
+    ACCOUNT_SID = config.get_twilio_account_sid()
+    AUTH_TOKEN = config.get_twilio_auth_token()
 
     client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
 
-    client.messages.create(
-        to=phone_number,
-        from_="+14385001046",
-        body="Congratulations you've officially been subscribed to Wat Taco!",
-    )
+    # client.messages.create(
+    #     to=phone_number,
+    #     from_="+14385001046",
+    #     body="Congratulations you've officially been subscribed to Wat Taco!",
+    # )
 
 
 TACO_PUNS = [
